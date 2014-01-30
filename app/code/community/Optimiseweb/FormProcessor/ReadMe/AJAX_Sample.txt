@@ -1,0 +1,43 @@
+<script type="text/javascript">
+  //<![CDATA[
+  var contactsForm = new VarienForm('contactsForm', true);
+  //]]>
+
+  jQuery(document).ready(function($){
+    $('#contactsForm').on('submit',function(e){
+      // Copy the form into a var
+      var form = $(this);
+      // Check to see if Prototype JS has left any validation errors
+      if(form.find('input[type=text],textarea,select').hasClass('validation-failed')){
+        var validation = false;
+      } else {
+        var validation = true;
+      }
+      // If no validation errors - submit
+      if(validation){
+        var post_url = form.attr('action');
+        var post_data = form.serialize();
+        $.ajax({
+          type: 'POST',
+          url: post_url,
+          data: post_data,
+          dataType:'json',
+          beforeSend: function(){
+            $('#loader').show();
+            $('.buttons-set button').hide();
+          },
+          success: function(data){
+            var html = '<div class="alert alert-'+ data.status +'"><button type="button" class="close" data-dismiss="alert">Ã—</button><div><div><span>'+ data.message +'</span></div></div></div>';
+            $('.std').prepend(html);
+          },
+          failure: function(){},
+          complete: function(){
+            $('#loader').hide();
+            $('.buttons-set button').show();
+          }
+        });
+        return false;
+      }
+    });
+  });
+</script>

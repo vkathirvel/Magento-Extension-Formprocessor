@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+* @package    Optimiseweb_FormProcessor
+* @author     Kathir Vel (sid@optimiseweb.co.uk)
+* @copyright  Copyright (c) 2013 Optimise Web Limited
+* @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+*/
+-->
+<config>
+
+    <modules>
+
+        <Optimiseweb_FormProcessor>
+            <version>0.1.7</version>
+        </Optimiseweb_FormProcessor>
+
+    </modules>
+
+    <frontend>
+
+        <routers>
+            <formprocessor>
+                <use>standard</use>
+                <args>
+                    <module>Optimiseweb_FormProcessor</module>
+                    <frontName>formprocessor</frontName>
+                </args>
+            </formprocessor>
+        </routers>
+
+    </frontend>
+
+    <admin>
+
+        <routers>
+            <formprocessor>
+                <use>admin</use>
+                <args>
+                    <module>Optimiseweb_FormProcessor</module>
+                    <frontName>formprocessor</frontName>
+                </args>
+            </formprocessor>
+        </routers>
+
+    </admin>
+
+    <adminhtml>
+
+        <menu>
+            <optimiseweball translate="title" module="formprocessor">
+                <title>Optimise Web</title>
+                <sort_order>71</sort_order>
+                <children>
+                    <formprocessor translate="title" module="formprocessor">
+                        <title>Form Processor</title>
+                        <sort_order>1</sort_order>
+                        <children>
+                            <forms translate="title" module="formprocessor">
+                                <title>Manage Forms</title>
+                                <action>formprocessor/adminhtml_forms</action>
+                            </forms>
+                            <entries translate="title" module="formprocessor">
+                                <title>Manage Entries</title>
+                                <action>formprocessor/adminhtml_entries</action>
+                            </entries>
+                            <settings translate="title" module="formprocessor">
+                                <title>Settings</title>
+                                <action>adminhtml/system_config/edit/section/optimisewebformprocessor</action>
+                            </settings>
+                        </children>
+                    </formprocessor>
+                </children>
+            </optimiseweball>
+        </menu>
+
+    </adminhtml>
+
+    <global>
+
+        <blocks>
+            <formprocessor>
+                <class>Optimiseweb_FormProcessor_Block</class>
+            </formprocessor>
+        </blocks>
+
+        <helpers>
+            <formprocessor>
+                <class>Optimiseweb_FormProcessor_Helper</class>
+            </formprocessor>
+        </helpers>
+
+        <models>
+            <formprocessor>
+                <class>Optimiseweb_FormProcessor_Model</class>
+                <resourceModel>formprocessor_resource</resourceModel>
+            </formprocessor>
+            <formprocessor_resource>
+                <class>Optimiseweb_FormProcessor_Model_Resource</class>
+                <entities>
+                    <forms>
+                        <table>ow_forms</table>
+                    </forms>
+                    <entries>
+                        <table>ow_form_entries</table>
+                    </entries>
+                </entities>
+            </formprocessor_resource>
+        </models>
+
+        <resources>
+            <formprocessor_setup>
+                <setup>
+                    <module>Optimiseweb_FormProcessor</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </formprocessor_setup>
+            <formprocessor_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </formprocessor_write>
+            <formprocessor_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </formprocessor_read>
+        </resources>
+
+    </global>
+
+</config>
