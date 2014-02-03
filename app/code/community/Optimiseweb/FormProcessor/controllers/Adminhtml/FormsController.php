@@ -5,7 +5,7 @@
  *
  * @package     Optimiseweb_FormProcessor
  * @author      Kathir Vel (sid@optimiseweb.co.uk)
- * @copyright   Copyright (c) 2013 Optimise Web Limited
+ * @copyright   Copyright (c) 2014 Optimise Web
  * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 class Optimiseweb_FormProcessor_Adminhtml_FormsController extends Mage_Adminhtml_Controller_Action
@@ -193,13 +193,13 @@ class Optimiseweb_FormProcessor_Adminhtml_FormsController extends Mage_Adminhtml
             try {
                 foreach ($formIds as $formId) {
                     $forms = Mage::getSingleton('formprocessor/forms')
-                            ->load($formId)
-                            ->setStatus($this->getRequest()->getParam('status'))
-                            ->setIsMassupdate(true)
-                            ->save();
+                        ->load($formId)
+                        ->setStatus($this->getRequest()->getParam('status'))
+                        ->setIsMassupdate(true)
+                        ->save();
                 }
                 $this->_getSession()->addSuccess(
-                        $this->__('Total of %d record(s) were successfully updated', count($formIds))
+                    $this->__('Total of %d record(s) were successfully updated', count($formIds))
                 );
             } catch (Exception $e) {
                 $this->_getSession()->addError($e->getMessage());

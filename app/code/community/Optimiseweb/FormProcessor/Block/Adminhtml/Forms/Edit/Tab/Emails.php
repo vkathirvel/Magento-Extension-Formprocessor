@@ -5,7 +5,7 @@
  *
  * @package     Optimiseweb_FormProcessor
  * @author      Kathir Vel (sid@optimiseweb.co.uk)
- * @copyright   Copyright (c) 2013 Optimise Web Limited
+ * @copyright   Copyright (c) 2014 Optimise Web
  * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 class Optimiseweb_FormProcessor_Block_Adminhtml_Forms_Edit_Tab_Emails extends Mage_Adminhtml_Block_Widget_Form
@@ -104,7 +104,7 @@ class Optimiseweb_FormProcessor_Block_Adminhtml_Forms_Edit_Tab_Emails extends Ma
                 'required' => false,
                 'values' => Mage::getModel('formprocessor/system_config_source_newsletter_subscribe')->toOptionArray(),
                 'after_element_html' => '<p class="note" style="width:90%;">This option automatically subscribes the visitor to the Magento newsletter subscribers list. To obtain explicit permission from the visitor, set this option to "No" and use a checkbox name="newsletter_subscribe" with value="1" in the form.</p>',
-                ));
+        ));
 
         $fieldset->addField('newsletter_subscribe_confirm', 'select', array(
                 'name' => 'newsletter_subscribe_confirm',

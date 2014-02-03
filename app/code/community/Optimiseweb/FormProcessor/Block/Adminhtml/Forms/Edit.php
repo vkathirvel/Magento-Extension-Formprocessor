@@ -5,7 +5,7 @@
  *
  * @package     Optimiseweb_FormProcessor
  * @author      Kathir Vel (sid@optimiseweb.co.uk)
- * @copyright   Copyright (c) 2013 Optimise Web Limited
+ * @copyright   Copyright (c) 2014 Optimise Web
  * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 class Optimiseweb_FormProcessor_Block_Adminhtml_Forms_Edit extends Mage_Adminhtml_Block_Widget_Form_Container
@@ -29,7 +29,7 @@ class Optimiseweb_FormProcessor_Block_Adminhtml_Forms_Edit extends Mage_Adminhtm
                 'label' => Mage::helper('formprocessor')->__('Save And Continue Edit'),
                 'onclick' => 'saveAndContinueEdit()',
                 'class' => 'save',
-                ), -100);
+            ), -100);
 
         $this->_formScripts[] = "
             function saveAndContinueEdit(){

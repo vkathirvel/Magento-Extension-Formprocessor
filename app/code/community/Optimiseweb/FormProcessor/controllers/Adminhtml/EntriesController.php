@@ -5,7 +5,7 @@
  *
  * @package     Optimiseweb_FormProcessor
  * @author      Kathir Vel (sid@optimiseweb.co.uk)
- * @copyright   Copyright (c) 2013 Optimise Web Limited
+ * @copyright   Copyright (c) 2014 Optimise Web
  * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 class Optimiseweb_FormProcessor_Adminhtml_EntriesController extends Mage_Adminhtml_Controller_Action
@@ -166,13 +166,13 @@ class Optimiseweb_FormProcessor_Adminhtml_EntriesController extends Mage_Adminht
             try {
                 foreach ($entryIds as $entryId) {
                     $entries = Mage::getSingleton('formprocessor/entries')
-                            ->load($entryId)
-                            ->setStatus($this->getRequest()->getParam('status'))
-                            ->setIsMassupdate(true)
-                            ->save();
+                        ->load($entryId)
+                        ->setStatus($this->getRequest()->getParam('status'))
+                        ->setIsMassupdate(true)
+                        ->save();
                 }
                 $this->_getSession()->addSuccess(
-                        $this->__('Total of %d record(s) were successfully updated', count($entryIds))
+                    $this->__('Total of %d record(s) were successfully updated', count($entryIds))
                 );
             } catch (Exception $e) {
                 $this->_getSession()->addError($e->getMessage());
