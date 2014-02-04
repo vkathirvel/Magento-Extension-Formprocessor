@@ -116,8 +116,8 @@ class Optimiseweb_FormProcessor_FormController extends Mage_Core_Controller_Fron
                             $this->ownerEmail->bcc = $this->form->getOwnerBcc();
                             $this->ownerEmail->subject = NULL;
                             $this->ownerEmail->variables = $this->post;
-                            $this->ownerEmail->attachment = NULL;
-                            $this->ownerEmail->template = $this->form->getOwnerEmailTemplate();
+                            $this->ownerEmail->attachments = NULL;
+                            $this->ownerEmail->templateId = $this->form->getOwnerEmailTemplate();
                             /**
                              * Instantiate Visitor Email Data
                              */
@@ -140,8 +140,8 @@ class Optimiseweb_FormProcessor_FormController extends Mage_Core_Controller_Fron
                             $this->visitorEmail->bcc = $this->form->getVisitorBcc();
                             $this->visitorEmail->subject = NULL;
                             $this->visitorEmail->variables = $this->post;
-                            $this->visitorEmail->attachment = NULL;
-                            $this->visitorEmail->template = $this->form->getVisitorEmailTemplate();
+                            $this->visitorEmail->attachments = NULL;
+                            $this->visitorEmail->templateId = $this->form->getVisitorEmailTemplate();
                             /**
                              * Upload, Process and Attach Attachments
                              */
@@ -166,11 +166,11 @@ class Optimiseweb_FormProcessor_FormController extends Mage_Core_Controller_Fron
                             $this->_newsletterSubscribe();
                             /* Send Owner Email */
                             if ($this->form->getOwnerEnabled()) {
-                                Mage::helper('emailer')->sendEmails($this->ownerEmail->senderName, $this->ownerEmail->senderEmail, $this->ownerEmail->recipientName, $this->ownerEmail->recipientEmail, $this->ownerEmail->replyTo, $this->ownerEmail->cc, $this->ownerEmail->bcc, $this->ownerEmail->subject, $this->ownerEmail->variables, $this->ownerEmail->attachment, $this->ownerEmail->template);
+                                Mage::helper('emailer')->sendmail($this->ownerEmail);
                             }
                             /* Send Visitor Email */
                             if ($this->form->getVisitorEnabled() AND $this->visitorEmail->recipientName AND $this->visitorEmail->recipientEmail) {
-                                Mage::helper('emailer')->sendEmails($this->visitorEmail->senderName, $this->visitorEmail->senderEmail, $this->visitorEmail->recipientName, $this->visitorEmail->recipientEmail, $this->visitorEmail->replyTo, $this->visitorEmail->cc, $this->visitorEmail->bcc, $this->visitorEmail->subject, $this->visitorEmail->variables, $this->visitorEmail->attachment, $this->visitorEmail->template);
+                                Mage::helper('emailer')->sendmail($this->visitorEmail);
                             }
                             /* Log Form Data */
                             if ($this->form->getLogFormData()) {
@@ -249,10 +249,10 @@ class Optimiseweb_FormProcessor_FormController extends Mage_Core_Controller_Fron
             /* Check if the attachment is to be attached to the emails */
             if ($this->form->getAttachmentEmail()) {
                 if (in_array('owner', $this->form->getAttachmentEmail())) {
-                    $this->ownerEmail->attachment = $attachmentsArray;
+                    $this->ownerEmail->attachments = $attachmentsArray;
                 }
                 if (in_array('visitor', $this->form->getAttachmentEmail())) {
-                    $this->visitorEmail->attachment = $attachmentsArray;
+                    $this->visitorEmail->attachments = $attachmentsArray;
                 }
             }
         }
