@@ -197,8 +197,8 @@ class Optimiseweb_FormProcessor_Helper_Data extends Mage_Core_Helper_Abstract
         if ($endDate) {
             
         } else {
-            /* $endDate = '2999-12-31 00:00:00'; */
-            $endDate = date('Y-m-d H:i:s', PHP_INT_MAX);
+            $endDate = '2038-12-31 00:00:00';
+            //$endDate = date('Y-m-d H:i:s', PHP_INT_MAX);
         }
 
         $today = strtotime(date('Y-m-d'));
