@@ -46,7 +46,7 @@ class Optimiseweb_FormProcessor_Helper_Data extends Mage_Core_Helper_Abstract
         if ($status) {
             switch ($status) {
                 case 'success':
-                    if (($this->getConfig('return_messages/success_message') == NULL) OR ($this->getConfig('return_messages/success_message') == '')) {
+                    if (($this->getConfig('return_messages/success_message') == NULL) OR ( $this->getConfig('return_messages/success_message') == '')) {
                         return 'The form has been successfully submitted.';
                     } else {
                         return $this->getConfig('return_messages/success_message');
@@ -54,7 +54,7 @@ class Optimiseweb_FormProcessor_Helper_Data extends Mage_Core_Helper_Abstract
                     break;
 
                 case 'error':
-                    if (($this->getConfig('return_messages/error_message') == NULL) OR ($this->getConfig('return_messages/error_message') == '')) {
+                    if (($this->getConfig('return_messages/error_message') == NULL) OR ( $this->getConfig('return_messages/error_message') == '')) {
                         return 'Errors were encountered while submitting the form.';
                     } else {
                         return $this->getConfig('return_messages/error_message');
@@ -62,7 +62,7 @@ class Optimiseweb_FormProcessor_Helper_Data extends Mage_Core_Helper_Abstract
                     break;
 
                 case 'notice':
-                    if (($this->getConfig('return_messages/notice_message') == NULL) OR ($this->getConfig('return_messages/notice_message') == '')) {
+                    if (($this->getConfig('return_messages/notice_message') == NULL) OR ( $this->getConfig('return_messages/notice_message') == '')) {
                         return 'The form is disabled.';
                     } else {
                         return $this->getConfig('return_messages/notice_message');
@@ -91,7 +91,7 @@ class Optimiseweb_FormProcessor_Helper_Data extends Mage_Core_Helper_Abstract
         if ($form->getStatus() == 1) {
             if ($this->filterStore($form->getStoreIds())) {
                 if ($this->checkDateRange($form->getStartDate(), $form->getEndDate())) {
-                    if (($form->getOwnerEnabled() == 1) OR ($form->getVisitorEnabled() == 1) OR ($form->getLogFormData() == 1)) {
+                    if (($form->getOwnerEnabled() == 1) OR ( $form->getVisitorEnabled() == 1) OR ( $form->getLogFormData() == 1)) {
                         $form->setStatusFlag(TRUE);
                         $form->setStatusMessage('The form is active and enabled.');
                     } else {
@@ -114,10 +114,10 @@ class Optimiseweb_FormProcessor_Helper_Data extends Mage_Core_Helper_Abstract
          * Attachments
          */
         /* Attachment Names */
-        if (($form->getAttachmentNames() != NULL) OR ($form->getAttachmentNames() != '')) {
+        if (($form->getAttachmentNames() != NULL) OR ( $form->getAttachmentNames() != '')) {
             $form->setAttachmentNames(explode(',', $form->getAttachmentNames()));
             /* Attachment Allowed Extensions */
-            if (($form->getAttachmentAllowedExtensions() != NULL) OR ($form->getAttachmentAllowedExtensions() != '')) {
+            if (($form->getAttachmentAllowedExtensions() != NULL) OR ( $form->getAttachmentAllowedExtensions() != '')) {
                 $form->setAttachmentAllowedExtensions(explode(',', $form->getAttachmentAllowedExtensions()));
             } else {
                 $form->setAttachmentAllowedExtensions(array('jpg', 'jpeg', 'gif', 'png', 'pdf', 'xls', 'xlsx', 'txt', 'rtf', 'doc', 'docx'));
@@ -127,7 +127,7 @@ class Optimiseweb_FormProcessor_Helper_Data extends Mage_Core_Helper_Abstract
                 $form->setAttachmentPrependName('');
             }
             /* Attachment Emails */
-            if (($form->getAttachmentEmail() != NULL) OR ($form->getAttachmentEmail() != '')) {
+            if (($form->getAttachmentEmail() != NULL) OR ( $form->getAttachmentEmail() != '')) {
                 $form->setAttachmentEmail(explode(',', $form->getAttachmentEmail()));
             } else {
                 $form->setAttachmentEmail(FALSE);
@@ -140,18 +140,18 @@ class Optimiseweb_FormProcessor_Helper_Data extends Mage_Core_Helper_Abstract
          */
         $form->setOwnerSenderName(Mage::getStoreConfig('trans_email/ident_' . $form->getOwnerSender() . '/name'));
         $form->setOwnerSenderEmail(Mage::getStoreConfig('trans_email/ident_' . $form->getOwnerSender() . '/email'));
-        if (($form->getOwnerRecipientEmail() == NULL) OR ($form->getOwnerRecipientEmail() == '')) {
+        if (($form->getOwnerRecipientEmail() == NULL) OR ( $form->getOwnerRecipientEmail() == '')) {
             $form->setOwnerRecipientEmail($form->getOwnerSenderEmail());
             $form->setOwnerRecipientEmail($form->getOwnerSenderEmail());
         }
-        if (($form->getOwnerBcc() != NULL) OR ($form->getOwnerBcc() != '')) {
+        if (($form->getOwnerBcc() != NULL) OR ( $form->getOwnerBcc() != '')) {
             $form->setOwnerBcc(explode(',', $form->getOwnerBcc()));
         } else {
             $form->setOwnerBcc(NULL);
         }
         $form->setVisitorSenderName(Mage::getStoreConfig('trans_email/ident_' . $form->getVisitorSender() . '/name'));
         $form->setVisitorSenderEmail(Mage::getStoreConfig('trans_email/ident_' . $form->getVisitorSender() . '/email'));
-        if (($form->getVisitorBcc() != NULL) OR ($form->getVisitorBcc() != '')) {
+        if (($form->getVisitorBcc() != NULL) OR ( $form->getVisitorBcc() != '')) {
             $form->setVisitorBcc(explode(',', $form->getVisitorBcc()));
         } else {
             $form->setVisitorBcc(NULL);
@@ -159,7 +159,7 @@ class Optimiseweb_FormProcessor_Helper_Data extends Mage_Core_Helper_Abstract
         /**
          * Redirect URL
          */
-        if (($form->getRedirectUrl() == NULL) OR ($form->getRedirectUrl() == '')) {
+        if (($form->getRedirectUrl() == NULL) OR ( $form->getRedirectUrl() == '')) {
             $form->setRedirectUrl(FALSE);
         } else {
             $form->setRedirectUrl($this->destinationUrlCheck($form->getRedirectUrl()));
@@ -168,13 +168,13 @@ class Optimiseweb_FormProcessor_Helper_Data extends Mage_Core_Helper_Abstract
         /**
          * Return messages
          */
-        if (($form->getSuccessMessage() == NULL) OR ($form->getSuccessMessage() == '')) {
+        if (($form->getSuccessMessage() == NULL) OR ( $form->getSuccessMessage() == '')) {
             $form->setSuccessMessage($this->defaultReturnMessage('success'));
         }
-        if (($form->getErrorMessage() == NULL) OR ($form->getErrorMessage() == '')) {
+        if (($form->getErrorMessage() == NULL) OR ( $form->getErrorMessage() == '')) {
             $form->setErrorMessage($this->defaultReturnMessage('error'));
         }
-        if (($form->getNoticeMessage() == NULL) OR ($form->getNoticeMessage() == '')) {
+        if (($form->getNoticeMessage() == NULL) OR ( $form->getNoticeMessage() == '')) {
             $form->setNoticeMessage($this->defaultReturnMessage('notice'));
         }
         return;
@@ -205,7 +205,7 @@ class Optimiseweb_FormProcessor_Helper_Data extends Mage_Core_Helper_Abstract
         $startDate = strtotime($startDate);
         $endDate = strtotime($endDate);
 
-        if (($today >= $startDate) AND ($today <= $endDate)) {
+        if (($today >= $startDate) AND ( $today <= $endDate)) {
             return TRUE;
         }
         return FALSE;

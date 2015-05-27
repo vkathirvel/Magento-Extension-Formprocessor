@@ -51,7 +51,7 @@ class Optimiseweb_FormProcessor_FormController extends Mage_Core_Controller_Fron
      */
     public function sampleAction()
     {
-        if (Mage::helper('formprocessor')->getConfig('sample/enabled') AND Mage::helper('formprocessor')->getConfig('sample/form_id') AND (Mage::helper('formprocessor')->getConfig('sample/form_id') != NULL)) {
+        if (Mage::helper('formprocessor')->getConfig('sample/enabled') AND Mage::helper('formprocessor')->getConfig('sample/form_id') AND ( Mage::helper('formprocessor')->getConfig('sample/form_id') != NULL)) {
 
             $this->loadLayout();
 
@@ -333,8 +333,8 @@ class Optimiseweb_FormProcessor_FormController extends Mage_Core_Controller_Fron
     protected function _newsletterSubscribe()
     {
         /* If the form is armed for newsletter subscription */
-        if (($this->form->getNewsletterSubscribe() == 1) OR (isset($this->post['newsletter_subscribe']) AND ($this->post['newsletter_subscribe'] == 1))) {
-            if (($this->form->getNewsletterSubscribeConfirm() == 1) OR (isset($this->post['newsletter_subscribe_confirm']) AND ($this->post['newsletter_subscribe_confirm'] == 1))) {
+        if (($this->form->getNewsletterSubscribe() == 1) OR ( isset($this->post['newsletter_subscribe']) AND ( $this->post['newsletter_subscribe'] == 1))) {
+            if (($this->form->getNewsletterSubscribeConfirm() == 1) OR ( isset($this->post['newsletter_subscribe_confirm']) AND ( $this->post['newsletter_subscribe_confirm'] == 1))) {
                 /* Easy method (but sends a confirmation email to the customer) */
                 $newsletterSubscriber = Mage::getModel('newsletter/subscriber')->subscribe($this->post['visitor_email']);
             } else {

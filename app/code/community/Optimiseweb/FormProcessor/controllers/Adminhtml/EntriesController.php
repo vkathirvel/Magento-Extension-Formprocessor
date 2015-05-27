@@ -204,7 +204,8 @@ class Optimiseweb_FormProcessor_Adminhtml_EntriesController extends Mage_Adminht
     /**
      *
      */
-    protected function _sendUploadResponse($fileName, $content, $contentType = 'application/octet-stream')
+    protected function _sendUploadResponse($fileName, $content,
+                                           $contentType = 'application/octet-stream')
     {
         $response = $this->getResponse();
         $response->setHeader('HTTP/1.1 200 OK', '');
