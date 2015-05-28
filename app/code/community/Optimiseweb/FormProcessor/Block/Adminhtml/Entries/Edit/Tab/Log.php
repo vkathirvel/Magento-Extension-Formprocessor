@@ -4,8 +4,8 @@
  * Optimiseweb FormProcessor Block Adminhtml Entries Edit Tab Log
  *
  * @package     Optimiseweb_FormProcessor
- * @author      Kathir Vel (sid@optimiseweb.co.uk)
- * @copyright   Copyright (c) 2014 Optimise Web
+ * @author      Kathir Vel (vkathirvel@gmail.com)
+ * @copyright   Copyright (c) 2015 Kathir Vel
  * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 class Optimiseweb_FormProcessor_Block_Adminhtml_Entries_Edit_Tab_Log extends Mage_Adminhtml_Block_Widget_Form

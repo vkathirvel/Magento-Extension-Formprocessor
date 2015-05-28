@@ -4,8 +4,8 @@
  * Optimiseweb FormProcessor Model System Config Source Newsletter Subscribe
  *
  * @package     Optimiseweb_FormProcessor
- * @author      Kathir Vel (sid@optimiseweb.co.uk)
- * @copyright   Copyright (c) 2014 Optimise Web
+ * @author      Kathir Vel (vkathirvel@gmail.com)
+ * @copyright   Copyright (c) 2015 Kathir Vel
  * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 class Optimiseweb_FormProcessor_Model_System_Config_Source_Newsletter_Subscribe extends Varien_Object
