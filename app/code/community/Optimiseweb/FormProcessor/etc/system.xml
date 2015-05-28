@@ -12,7 +12,7 @@
     <tabs>
         <optimisewebconfig translate="label comment" module="formprocessor">
             <label>Optimise Web</label>
-            <sort_order>0</sort_order>
+            <sort_order>400</sort_order>
         </optimisewebconfig>
     </tabs>
 
@@ -20,6 +20,8 @@
         <optimisewebformprocessor translate="label comment" module="formprocessor">
             <label>Form Processor</label>
             <tab>optimisewebconfig</tab>
+            <class>ow-system-section ow-form-processor-section</class>
+            <header_css>ow-system-header ow-form-processor-header</header_css>
             <frontend_type>text</frontend_type>
             <sort_order>99999</sort_order>
             <show_in_default>1</show_in_default>
@@ -27,7 +29,15 @@
             <show_in_store>1</show_in_store>
             <groups>
 
-                <sample translate="label comment">
+                <hint translate="label comment" module="formprocessor">
+                    <frontend_model>formprocessor/adminhtml_system_config_fieldset_hint</frontend_model>
+                    <sort_order>0</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                </hint>
+
+                <sample translate="label comment" module="formprocessor">
                     <label>Sample Form Page</label>
                     <frontend_type>text</frontend_type>
                     <sort_order>1</sort_order>
@@ -35,7 +45,7 @@
                     <show_in_website>1</show_in_website>
                     <show_in_store>1</show_in_store>
                     <fields>
-                        <enabled translate="label comment">
+                        <enabled translate="label comment" module="formprocessor">
                             <label>Enable a Sample Form Page?</label>
                             <frontend_type>select</frontend_type>
                             <source_model>adminhtml/system_config_source_yesno</source_model>
@@ -44,7 +54,7 @@
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
                         </enabled>
-                        <form_id translate="label comment">
+                        <form_id translate="label comment" module="formprocessor">
                             <label>ID of the form to test?</label>
                             <frontend_type>text</frontend_type>
                             <sort_order>2</sort_order>
@@ -52,7 +62,7 @@
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
                         </form_id>
-                        <ajax translate="label comment">
+                        <ajax translate="label comment" module="formprocessor">
                             <label>AJAX?</label>
                             <frontend_type>select</frontend_type>
                             <source_model>adminhtml/system_config_source_yesno</source_model>
@@ -61,7 +71,7 @@
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
                         </ajax>
-                        <root_template translate="label comment">
+                        <root_template translate="label comment" module="formprocessor">
                             <label>Page Design Template</label>
                             <frontend_type>select</frontend_type>
                             <source_model>formprocessor/system_config_source_layouts</source_model>
@@ -70,7 +80,7 @@
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
                         </root_template>
-                        <url translate="label comment">
+                        <url translate="label comment" module="formprocessor">
                             <label>Sample Form Page</label>
                             <frontend_model>formprocessor/system_config_backend_sample</frontend_model>
                             <sort_order>5</sort_order>
@@ -82,7 +92,7 @@
                 </sample>
 
 
-                <return_messages translate="label comment">
+                <return_messages translate="label comment" module="formprocessor">
                     <label>Global / Default Return Messages</label>
                     <frontend_type>text</frontend_type>
                     <sort_order>2</sort_order>
@@ -90,7 +100,7 @@
                     <show_in_website>1</show_in_website>
                     <show_in_store>1</show_in_store>
                     <fields>
-                        <success_message translate="label comment">
+                        <success_message translate="label comment" module="formprocessor">
                             <label>Success Message</label>
                             <frontend_type>text</frontend_type>
                             <sort_order>1</sort_order>
@@ -98,7 +108,7 @@
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
                         </success_message>
-                        <error_message translate="label comment">
+                        <error_message translate="label comment" module="formprocessor">
                             <label>Error Message</label>
                             <frontend_type>text</frontend_type>
                             <sort_order>2</sort_order>
@@ -106,7 +116,7 @@
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
                         </error_message>
-                        <notice_message translate="label comment">
+                        <notice_message translate="label comment" module="formprocessor">
                             <label>Notice Message</label>
                             <frontend_type>text</frontend_type>
                             <sort_order>3</sort_order>
@@ -117,7 +127,7 @@
                     </fields>
                 </return_messages>
 
-                <ajax translate="label comment">
+                <ajax translate="label comment" module="formprocessor">
                     <label>AJAX Processing</label>
                     <frontend_type>text</frontend_type>
                     <sort_order>3</sort_order>
@@ -125,7 +135,7 @@
                     <show_in_website>1</show_in_website>
                     <show_in_store>1</show_in_store>
                     <fields>
-                        <loader translate="label comment">
+                        <loader translate="label comment" module="formprocessor">
                             <label>Loader</label>
                             <comment>Allowed file types: jpeg, gif, png.</comment>
                             <frontend_type>image</frontend_type>
@@ -143,4 +153,5 @@
             </groups>
         </optimisewebformprocessor>
     </sections>
+    
 </config>
